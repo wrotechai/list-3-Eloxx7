@@ -1,0 +1,94 @@
+{
+  "tests": [
+    {
+      "name": "T1_GRIPPER_PARSE — Task 3 (gripper) PDDL parses",
+      "setup": "",
+      "run": "python3 tests/autograder.py T1_GRIPPER_PARSE",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 120,
+      "points": 2
+    },
+    {
+      "name": "T2_GRIPPER_PLAN — Gripper plan reaches the goal (balls moved)",
+      "setup": "",
+      "run": "python3 tests/autograder.py T2_GRIPPER_PLAN",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 300,
+      "points": 5
+    },
+    {
+      "name": "T3_VACUUM_PARSE — Task 2 (vacuum) PDDL parses",
+      "setup": "",
+      "run": "python3 tests/autograder.py T3_VACUUM_PARSE",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 120,
+      "points": 2
+    },
+    {
+      "name": "T4_VACUUM_PLAN — Vacuum plan is sound and reaches the goal",
+      "setup": "",
+      "run": "python3 tests/autograder.py T4_VACUUM_PLAN",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 300,
+      "points": 5
+    },
+    {
+      "name": "T5_VACUUM_GOAL — Rooms are cleaned by the robot (clean action used)",
+      "setup": "",
+      "run": "python3 tests/autograder.py T5_VACUUM_GOAL",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 300,
+      "points": 5
+    },
+    {
+      "name": "T6_TRANSPORT_PARSE — Task 1 (transport) PDDL parses",
+      "setup": "",
+      "run": "python3 tests/autograder.py T6_TRANSPORT_PARSE",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 300,
+      "points": 3
+    },
+    {
+      "name": "T7_TRANSPORT_PLAN — Transport plan delivers the packages",
+      "setup": "",
+      "run": "python3 tests/autograder.py T7_TRANSPORT_PLAN",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 300,
+      "points": 7
+    },
+    {
+      "name": "T8_TRANSPORT_TYPING — Transport domain is typed (multiple types)",
+      "setup": "",
+      "run": "python3 tests/autograder.py T8_TRANSPORT_TYPING",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 120,
+      "points": 5
+    },
+    {
+      "name": "T9_TRANSPORT_MULTI — Packages are carried by vehicles (load/move/unload)",
+      "setup": "",
+      "run": "python3 tests/autograder.py T9_TRANSPORT_MULTI",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 300,
+      "points": 6
+    }
+  ]
+}

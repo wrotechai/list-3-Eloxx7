@@ -1,0 +1,8 @@
+# Planner artifacts
+*.soln
+sas_plan*
+output.sas
+# Python
+__pycache__/
+*.pyc
+.venv/

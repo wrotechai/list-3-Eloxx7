@@ -1,0 +1,55 @@
+name: Autograding Tests
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pyperplan
+        run: pip install pyperplan
+
+      # Fast Downward is an optional fallback for PDDL features pyperplan cannot
+      # ground (e.g. :action-costs, :numeric-fluents). The build is cached so it
+      # only runs once. If the build fails, the autograder still works on every
+      # STRIPS/typing model via pyperplan.
+      - name: Cache Fast Downward
+        id: cache-fd
+        uses: actions/cache@v4
+        with:
+          path: downward
+          key: fast-downward-release-24.06
+
+      - name: Build Fast Downward
+        if: steps.cache-fd.outputs.cache-hit != 'true'
+        continue-on-error: true
+        run: |
+          sudo apt-get update && sudo apt-get install -y cmake g++ make
+          git clone --depth 1 --branch release-24.06 https://github.com/aibasel/downward.git
+          cd downward && ./build.py
+
+      - name: Expose Fast Downward to the autograder
+        if: always()
+        run: |
+          if [ -f downward/fast-downward.py ]; then
+            echo "FAST_DOWNWARD=$GITHUB_WORKSPACE/downward/fast-downward.py" >> "$GITHUB_ENV"
+          fi
+
+      - name: Autograding
+        uses: education/autograding@v1
